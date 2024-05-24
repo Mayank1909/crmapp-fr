@@ -46,7 +46,7 @@ const Login = ({ handleOnChange, email, password, handleOnSubmit, frmSwitcher })
                     Submit
                 </button>
 
-                <a href='/#'><h1 className='font-bold text text-blue-300 p-2' onClick={() => frmSwitcher('reset')}>forget password ?</h1></a>
+                <a href='#!'><h1 className='font-bold text text-blue-300 p-2' onClick={() => frmSwitcher('reset')}>forget password ?</h1></a>
 
             </form>
 

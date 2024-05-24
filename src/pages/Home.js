@@ -38,7 +38,7 @@ const Home = () => {
         console.log(email);
     }
     return (
-        <div className='bg-blue-300 h-full flex-1 mt-28'>
+        <div className=' p-5 bg-blue-300 h-full mt-24'>
             {frmLoad === 'login' && <Login
                 handleOnChange={handleOnChange}
                 email={email}
