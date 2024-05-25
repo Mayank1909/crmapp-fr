@@ -1,18 +1,18 @@
 import React from 'react'
 
-const BreadCrump = () => {
+const BreadCrump = ({ page }) => {
     return (
         <div>
-            <nav class="bg-white p-4 ">
-                <ol class="list-reset flex text-gray-600">
+            <nav className="bg-white p-4 ">
+                <ol className="list-reset flex text-gray-600">
                     <li>
-                        <a href="/" class="text-blue-600 hover:text-blue-800">Home</a>
+                        <a href="/" className="text-blue-600 hover:text-blue-800">Home</a>
                     </li>
                     <li>
-                        <span class="mx-2">/</span>
+                        <span className="mx-2">/</span>
                     </li>
-                    <li class="text-gray-500">
-                        Dashboard
+                    <li className="text-gray-500">
+                        {page}
                     </li>
                 </ol>
             </nav>

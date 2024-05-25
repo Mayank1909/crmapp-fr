@@ -1,3 +1,4 @@
+import AddTicket from './components/AddTicket';
 import BreadCrump from './components/BreadCrump';
 import DashBoard from './components/DashBoard';
 import Footer from './components/Footer';
@@ -11,7 +12,8 @@ function App() {
       <Navbar />
       {/* <Home /> */}
       {/* <BreadCrump /> */}
-      <DashBoard />
+      {/* <DashBoard /> */}
+      <AddTicket />
       <Footer />
     </div>
   );
