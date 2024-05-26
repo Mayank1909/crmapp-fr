@@ -3,7 +3,9 @@ import BreadCrump from './components/BreadCrump';
 import DashBoard from './components/DashBoard';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import TicketList from './components/TicketList';
 import Home from './pages/Home';
+
 
 
 function App() {
@@ -13,7 +15,8 @@ function App() {
       {/* <Home /> */}
       {/* <BreadCrump /> */}
       {/* <DashBoard /> */}
-      <AddTicket />
+      {/* <AddTicket /> */}
+      <TicketList />
       <Footer />
     </div>
   );

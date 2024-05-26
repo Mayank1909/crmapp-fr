@@ -23,7 +23,7 @@ const TicketTable = ({ tickets }) => {
                                     <td class="py-2 px-4">{row.addedat}</td>
                                 </tr>
                             )) : (
-                                <div className='text-center'>
+                                <div className=' flex justify-center'>
                                     <td>no ticket to show</td>
                                 </div>
                             )}
