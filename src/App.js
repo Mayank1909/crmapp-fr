@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import TicketList from './components/TicketList';
 import Home from './pages/Home';
+import Ticket from './pages/Ticket';
 
 
 
@@ -14,9 +15,10 @@ function App() {
       <Navbar />
       {/* <Home /> */}
       {/* <BreadCrump /> */}
-      {/* <DashBoard /> */}
+      <DashBoard />
       {/* <AddTicket /> */}
-      <TicketList />
+      {/* <TicketList /> */}
+      {/* <Ticket /> */}
       <Footer />
     </div>
   );

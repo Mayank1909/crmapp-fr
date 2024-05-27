@@ -3,42 +3,101 @@
         "id": 1,
         "subject": "issue in generating API",
         "status": "data response pending",
-        "addedat": "19/11/24"
+        "addedat": "19/11/24",
+        "history": [
+            {
+                "date": "20-01-2005",
+                "message": "asdfds",
+                "messageBy": "client"
+            },
+            {
+                "date": "20-01-2021",
+                "message": "hello",
+                "messageBy": "operator"
+            },
+            {
+                "date": "20-05-2024",
+                "message": "order order",
+                "messageBy": "client"
+            }
+        ]
     },
     {
         "id": 1,
         "subject": "email problem",
         "status": "data response pending",
-        "addedat": "19/11/24"
+        "addedat": "19/11/24",
+        "history": [
+            {
+                "date": "20-01-2005",
+                "message": "asdfds",
+                "messageBy": "client"
+            }
+        ]
     },
     {
         "id": 1,
         "subject": "time done",
         "status": "data response pending",
-        "addedat": "19/11/24"
+        "addedat": "19/11/24",
+        "history": [
+            {
+                "date": "20-01-2005",
+                "message": "asdfds",
+                "messageBy": "client"
+            }
+        ]
     },
     {
         "id": 1,
         "subject": "issue in generating API",
         "status": "data response pending",
-        "addedat": "19/11/24"
+        "addedat": "19/11/24",
+        "history": [
+            {
+                "date": "20-01-2005",
+                "message": "asdfds",
+                "messageBy": "client"
+            }
+        ]
     },
     {
         "id": 1,
         "subject": "issue in handeling processing",
         "status": "data response pending",
-        "addedat": "19/11/24"
+        "addedat": "19/11/24",
+        "history": [
+            {
+                "date": "20-01-2005",
+                "message": "asdfds",
+                "messageBy": "client"
+            }
+        ]
     },
     {
         "id": 1,
         "subject": "issue in generating API",
         "status": "data response pending",
-        "addedat": "19/11/24"
+        "addedat": "19/11/24",
+        "history": [
+            {
+                "date": "20-01-2005",
+                "message": "asdfds",
+                "messageBy": "client"
+            }
+        ]
     },
     {
         "id": 1,
         "subject": "issue in generating API",
         "status": "data response pending",
-        "addedat": "19/11/24"
+        "addedat": "19/11/24",
+        "history": [
+            {
+                "date": "20-01-2005",
+                "message": "asdfds",
+                "messageBy": "client"
+            }
+        ]
     }
 ]
