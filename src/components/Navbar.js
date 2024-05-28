@@ -1,16 +1,21 @@
 import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
+    const navigate = useNavigate();
+    const logmeout = () => {
+        navigate.push("/")
+    }
     return (
         <div>
             <nav className="bg-white shadow-md">
                 <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-                    <a href="#" className="text-2xl font-bold text-gray-800">CRM Ticketing</a>
+                    <Link to="/" className="text-2xl font-bold text-gray-800">CRM Ticketing</Link>
                     <div className="flex space-x-4">
-                        <a href="#" className="text-gray-800 hover:text-gray-600">Home</a>
-                        <a href="#" className="text-gray-800 hover:text-gray-600">Dashboard</a>
-                        <a href="#" className="text-gray-800 hover:text-gray-600">Tickets</a>
-                        <a href="#" className="text-gray-800 hover:text-gray-600">logout</a>
+                        <Link to="/" className="text-gray-800 hover:text-gray-600">Home</Link>
+                        <Link to="/DashBoard" className="text-gray-800 hover:text-gray-600">Dashboard</Link>
+                        <Link to="/tickets" className="text-gray-800 hover:text-gray-600">Tickets</Link>
+                        <Link to="/" className="text-gray-800 hover:text-gray-600" onClick={() => logmeout}>logout</Link>
                     </div>
                     <div className="relative">
                         <svg className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

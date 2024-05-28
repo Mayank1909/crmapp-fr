@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import ResetPassword from './ResetPassword'
+import { Link } from 'react-router-dom'
 
 
 const Login = ({ handleOnChange, email, password, handleOnSubmit, frmSwitcher }) => {
+
 
 
 
@@ -46,7 +47,7 @@ const Login = ({ handleOnChange, email, password, handleOnSubmit, frmSwitcher })
                     Submit
                 </button>
 
-                <a href='#!'><h1 className='font-bold text text-blue-300 p-2' onClick={() => frmSwitcher('reset')}>forget password ?</h1></a>
+                <Link to='/'><h1 className='font-bold text text-blue-300 p-2' onClick={() => frmSwitcher('reset')}>forget password ?</h1></Link>
 
             </form>
 

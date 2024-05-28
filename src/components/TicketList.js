@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import BreadCrump from './BreadCrump'
 import tickets from "../assets/data/dummy_data.json"
 import TicketTable from './TicketTable';
+import { Link } from 'react-router-dom';
+
 
 const TicketList = () => {
     const [str, setstr] = useState('');
@@ -28,7 +30,7 @@ const TicketList = () => {
             <div className="container mx-auto p-4">
                 <div className="flex justify-between items-center bg-white p-4 rounded shadow-md">
                     <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
-                        Add New Ticket
+                        <Link to="/add-ticket"> Add New Ticket</Link>
                     </button>
                     <form className="flex items-center space-x-2">
                         <input

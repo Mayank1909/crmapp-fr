@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 const TicketTable = ({ tickets }) => {
     return (
         <div>
@@ -16,9 +16,9 @@ const TicketTable = ({ tickets }) => {
                     <tbody>
                         {
                             tickets.length ? (tickets.map(row =>
-                                <tr class="bg-gray-100 text-center">
+                                <tr class="bg-gray-100 text-center" key={row.id}>
                                     <td class="py-2 px-4"> {row.id} </td>
-                                    <td class="py-2 px-4">{row.subject}</td>
+                                    <td class="py-2 px-4 text-blue-400 underline"><Link to={`/ticket/${row.id}`}>{row.subject}</Link></td>
                                     <td class="py-2 px-4"> {row.status} </td>
                                     <td class="py-2 px-4">{row.addedat}</td>
                                 </tr>

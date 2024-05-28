@@ -2,6 +2,8 @@ import React from 'react'
 import TicketTable from './TicketTable'
 import tickets from "../assets/data/dummy_data.json"
 import BreadCrump from './BreadCrump'
+import { Link } from 'react-router-dom'
+
 const DashBoard = () => {
     return (
         <div className='mb-2'>
@@ -9,7 +11,7 @@ const DashBoard = () => {
 
             <div className="text-center mt-24">
                 <div>
-                    <button className="bg-blue-500 text-white px-10 py-6 rounded-lg text-3xl">Add new ticket</button>
+                    <button className="bg-blue-500 text-white px-10 py-6 rounded-lg text-3xl"><Link to="/add-ticket">Add new ticket</Link></button>
                 </div>
                 <div className='p-5 m-5'>
                     <p>Total tickets: 50</p>

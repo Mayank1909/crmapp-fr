@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 
 const ResetPassword = ({ handleOnChange, email, handleOnSubmit, frmSwitcher, handleOnResetSubmit }) => {
@@ -32,7 +33,7 @@ const ResetPassword = ({ handleOnChange, email, handleOnSubmit, frmSwitcher, han
                     Submit
                 </button>
 
-                <a href="!#"><h1 className='font-bold text text-blue-300 p-2' onClick={() => frmSwitcher('login')}>Login Now</h1></a>
+                <Link to="/"><h1 className='font-bold text text-blue-300 p-2' onClick={() => frmSwitcher('login')}>Login Now</h1></Link>
 
             </form>
 

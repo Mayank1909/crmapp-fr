@@ -1,13 +1,26 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import BreadCrump from '../components/BreadCrump'
 import tickets from "../assets/data/dummy_data.json"
 import MessageHistory from '../components/MessageHistory';
 import UpdateTicket from '../components/UpdateTicket';
+import { useParams } from 'react-router-dom';
 
 
 const Ticket = () => {
-    const ticket = tickets[0];
+    const { tId } = useParams()
+    // const ticket = tickets[0];
     const [message, setMessage] = useState('')
+    const [ticket, setTicket] = useState([]);
+    useEffect(() => {
+        getTicket()
+    }, [message, tId])
+    const getTicket = () => {
+        for (let i = 0; i < tickets.length; i++) {
+            if (tickets[i].id == tId) {
+                setTicket(tickets[i])
+            }
+        }
+    }
     const handleOnChange = (e) => {
         let value = e.target.value
         setMessage(value)
@@ -33,7 +46,7 @@ const Ticket = () => {
                         Close Ticket
                     </button>
                 </div>
-
+                {tId}
                 <div className="flex flex-col space-y-4">
                     <div className="flex flex-col">
                         <label className="text-sm font-medium text-gray-700">Subject</label>
