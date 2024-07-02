@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import TicketTable from './TicketTable'
-import tickets from "../assets/data/dummy_data.json"
 import BreadCrump from './BreadCrump'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchAllTickets } from './TicketAction'
+
 
 const DashBoard = () => {
+    const dispatch = useDispatch();
+    const { tickets } = useSelector((state) => state.tickets);
+
+    useEffect(() => {
+        if (!tickets.length) {
+            dispatch(fetchAllTickets())
+        }
+    }, [tickets, dispatch]);
+    const pendingTickets = tickets.filter((row) => row.status !== "Closed");
+    const totlatTickets = tickets.length;
     return (
         <div className='mb-2'>
             <BreadCrump page={"DashBoard"} />
@@ -14,8 +26,8 @@ const DashBoard = () => {
                     <button className="bg-blue-500 text-white px-10 py-6 rounded-lg text-3xl"><Link to="/add-ticket">Add new ticket</Link></button>
                 </div>
                 <div className='p-5 m-5'>
-                    <p>Total tickets: 50</p>
-                    <p>Pending tickets: 25</p>
+                    <p>Total tickets: {totlatTickets}</p>
+                    <p>Pending tickets: {pendingTickets.length}</p>
                 </div>
             </div>
             <hr />

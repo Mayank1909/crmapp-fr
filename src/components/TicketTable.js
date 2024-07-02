@@ -31,9 +31,9 @@ const TicketTable = () => {
                                     <td className="py-2 px-4">{row.openAt}</td>
                                 </tr>
                             )) : (
-                                <div className=' flex justify-center'>
+                                <tr className=' flex justify-center'>
                                     <td>no ticket to show</td>
-                                </div>
+                                </tr>
                             )}
 
 

@@ -1,8 +1,64 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { loginPending, loginSuccess, loginFail } from "./LoginSlice.js"
+import { useDispatch, useSelector } from 'react-redux';
+import { userLogin } from "../APis/userApi.js"
+import { useNavigate, useLocation } from "react-router-dom";
+import { getUserProfile } from './DashBoard.userAction.js';
 
 
-const Login = ({ handleOnChange, email, password, handleOnSubmit, frmSwitcher }) => {
+
+const Login = ({ frmSwitcher }) => {
+    const [email, setEmail] = useState("mayandsdsk@e.com");
+    const [password, setPassword] = useState("password");
+
+    const { isLoading, isAuth, error } = useSelector(state => state.login);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    let location = useLocation();
+    useEffect(() => {
+        sessionStorage.getItem("accessJWT") && navigate("/dashBoard")
+    }, [dispatch])
+
+    const handleOnChange = e => {
+        const { name, value } = e.target;
+
+        switch (name) {
+            case "email":
+                setEmail(value);
+                break;
+
+            case "password":
+                setPassword(value);
+                break;
+
+            default:
+                break;
+        }
+    };
+    const handleOnSubmit = async e => {
+        e.preventDefault();
+
+        if (!email || !password) {
+            return alert("Fill up all the form!");
+        }
+
+        dispatch(loginPending());
+
+        try {
+            const isAuth = await userLogin({ email, password });
+
+            if (isAuth.status === "error") {
+                return dispatch(loginFail(isAuth.message));
+            }
+
+            dispatch(loginSuccess());
+            dispatch(getUserProfile());
+            navigate("/dashboard");
+        } catch (error) {
+            dispatch(loginFail(error.message));
+        }
+    };
 
 
 
@@ -18,11 +74,10 @@ const Login = ({ handleOnChange, email, password, handleOnSubmit, frmSwitcher })
                         type="email"
                         className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                         id="email"
-                        value={email}
-                        onChange={handleOnChange}
-                        onSubmit={handleOnSubmit}
                         name="email"
                         aria-describedby="emailHelp"
+                        value={email}
+                        onChange={handleOnChange}
 
                     />
                 </div>
@@ -32,9 +87,8 @@ const Login = ({ handleOnChange, email, password, handleOnSubmit, frmSwitcher })
                         type="password"
                         className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                         id="password"
-                        value={password}
                         onChange={handleOnChange}
-                        onSubmit={handleOnSubmit}
+                        value={password}
                         name="password"
 
                     />
@@ -42,7 +96,7 @@ const Login = ({ handleOnChange, email, password, handleOnSubmit, frmSwitcher })
                 <button
                     type="submit"
                     className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
-                    onSubmit={handleOnSubmit}
+
                 >
                     Submit
                 </button>
