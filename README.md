@@ -5,18 +5,18 @@
 
 Welcome to the CRM Ticketing System GitHub repository! This project is a comprehensive Customer Relationship Management (CRM) application designed to streamline ticket management and improve customer support efficiency. Built entirely with React and styled using Tailwind CSS, this system provides a robust, scalable, and visually appealing solution for handling customer service requests.
 
-Features
-User-Friendly Interface: Intuitive and responsive design using React and Tailwind CSS.
-Ticket Management: Create, update, and track the status of customer tickets.
-User Authentication: Secure login and user authentication with role-based access control.
-Real-Time Notifications: Instant notifications for ticket updates and responses.
-Search and Filter: Easily search and filter tickets based on various criteria.
-Dashboard: Overview of ticket statistics and user activity.
-Responsive Design: Fully optimized for mobile and desktop use.
-Technologies Used
-React: For building the user interface with a component-based architecture.
-Tailwind CSS: For rapid UI development and custom styling.
-JavaScript: Core programming language for functionality and interactivity.# Getting Started with Create React App
+# Features : 
+- User-Friendly Interface: Intuitive and responsive design using React and Tailwind CSS.
+- Ticket Management: Create, update, and track the status of customer tickets.
+- User Authentication: Secure login and user authentication with role-based access control.
+- Real-Time Notifications: Instant notifications for ticket updates and responses.
+- Search and Filter: Easily search and filter tickets based on various criteria.
+- Dashboard: Overview of ticket statistics and user activity.
+- Responsive Design: Fully optimized for mobile and desktop use.
+- Technologies Used
+- React: For building the user interface with a component-based architecture.
+- Tailwind CSS: For rapid UI development and custom styling.
+- JavaScript: Core programming language for functionality and interactivity.# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
