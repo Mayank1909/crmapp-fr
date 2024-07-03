@@ -3,35 +3,43 @@ import BreadCrump from '../components/BreadCrump'
 import tickets from "../assets/data/dummy_data.json"
 import MessageHistory from '../components/MessageHistory';
 import UpdateTicket from '../components/UpdateTicket';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { resetResponseMsg } from '../components/TicketSlice';
+import { closeTicket, fetchSingleTicket } from '../components/TicketAction';
+
+
+
 
 
 const Ticket = () => {
     const { tId } = useParams()
+    const dispatch = useDispatch();
     // const ticket = tickets[0];
-    const [message, setMessage] = useState('')
-    const [ticket, setTicket] = useState([]);
-    useEffect(() => {
-        getTicket()
-    }, [message, tId])
-    const getTicket = () => {
-        for (let i = 0; i < tickets.length; i++) {
-            if (tickets[i].id == tId) {
-                setTicket(tickets[i])
-            }
-        }
-    }
-    const handleOnChange = (e) => {
-        let value = e.target.value
-        setMessage(value)
-        console.log(value)
+    // const [message, setMessage] = useState('')
+    // const [ticket, setTicket] = useState([]);
+    const navigate = useNavigate();
 
+    const {
+        isLoading,
+        error,
+        selectedTicket,
+        replyMsg,
+        replyTicketError,
+    } = useSelector(state => state.tickets);
+    const handleOnClick = () => {
+        dispatch(closeTicket(tId));
+        // navigate('/dashboard');
     }
-    const handleOnSubmit = (e) => {
-        e.preventDefault();
-        console.log(message)
-        alert("form submitted")
-    }
+
+    useEffect(() => {
+        dispatch(fetchSingleTicket(tId));
+
+        return () => {
+            (replyMsg || replyTicketError) && dispatch(resetResponseMsg());
+        };
+    }, [tId, dispatch, replyMsg, replyTicketError])
+
     return (
         <div>
             <BreadCrump page={"Ticket"} />
@@ -42,6 +50,9 @@ const Ticket = () => {
                     <button
                         // onClick={onClose}
                         className="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600 focus:outline-none focus:bg-red-600"
+                        onClick={() => handleOnClick()}
+                        disabled={selectedTicket.status === 'Closed'}
+
                     >
                         Close Ticket
                     </button>
@@ -50,23 +61,25 @@ const Ticket = () => {
                 <div className="flex flex-col space-y-4">
                     <div className="flex flex-col">
                         <label className="text-sm font-medium text-gray-700">Subject</label>
-                        <p className="text-lg text-gray-900">{ticket.subject}</p>
+                        <p className="text-lg text-gray-900">{selectedTicket.subject}</p>
                     </div>
                     <div className="flex flex-col">
                         <label className="text-sm font-medium text-gray-700">Status</label>
-                        <p className="text-lg text-gray-900">{ticket.status}</p>
+                        <p className="text-lg text-gray-900">{selectedTicket.status}</p>
                     </div>
                     <div className="flex flex-col">
                         <label className="text-sm font-medium text-gray-700">Issue Date</label>
-                        <p className="text-lg text-gray-900">{ticket.addedat}</p>
+                        <p className="text-lg text-gray-900">{selectedTicket.openAt &&
+                            new Date(selectedTicket.openAt).toLocaleString()}</p>
                     </div>
                 </div>
 
-                <MessageHistory msg={ticket.history} />
+                {selectedTicket.conversations && (
+                    <MessageHistory msg={selectedTicket.conversations} />)
+                }
 
-                < UpdateTicket message={message}
-                    handleOnChange={handleOnChange}
-                    handleOnSubmit={handleOnSubmit} />
+                < UpdateTicket _id={tId}
+                />
             </div>
 
         </div>

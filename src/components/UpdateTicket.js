@@ -1,6 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { replyOnTicket } from './TicketAction';
 
-const UpdateTicket = ({ message, handleOnChange, handleOnSubmit }) => {
+const UpdateTicket = ({ _id }) => {
+
+    const dispatch = useDispatch();
+    const {
+        user: { name },
+    } = useSelector((state) => state.user);
+    const [message, setMessage] = useState("");
+
+    const handleOnChange = (e) => {
+        setMessage(e.target.value);
+    };
+
+    const handleOnSubmit = (e) => {
+        e.preventDefault();
+
+        const msgObj = {
+            message,
+            sender: name,
+        };
+
+        dispatch(replyOnTicket(_id, msgObj));
+        setMessage("");
+    };
     return (
         <div>
             <form className="p-2 m-2" onSubmit={handleOnSubmit} autoComplete='off'>
