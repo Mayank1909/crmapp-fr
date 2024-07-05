@@ -1,13 +1,14 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
+import Spinner from './Spinner';
 
 const TicketTable = () => {
 
     const { searchTicketList, isLoading, error } = useSelector(
         (state) => state.tickets
     );
-    if (isLoading) return <h3>Loading ...</h3>;
+    if (isLoading) return <Spinner />
     if (error) return <h3>{error}</h3>;
     return (
         <div>
@@ -28,7 +29,7 @@ const TicketTable = () => {
                                     <td className="py-2 px-4"> {index + 1} </td>
                                     <td className="py-2 px-4 text-blue-400 underline"><Link to={`/ticket/${row._id}`}>{row.subject}</Link></td>
                                     <td className="py-2 px-4"> {row.status} </td>
-                                    <td className="py-2 px-4">{row.openAt}</td>
+                                    <td className="py-2 px-4">{row.openAt && new Date(row.openAt).toLocaleString()}</td>
                                 </tr>
                             )) : (
                                 <tr className=' flex justify-center'>

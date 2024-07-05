@@ -49,7 +49,7 @@ const Ticket = () => {
                 <div className="flex justify-end">
                     <button
                         // onClick={onClose}
-                        className="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600 focus:outline-none focus:bg-red-600"
+                        className="bg-red-500 text-white py-1 px-3 rounded  focus:outline-none focus:bg-red-600"
                         onClick={() => handleOnClick()}
                         disabled={selectedTicket.status === 'Closed'}
 

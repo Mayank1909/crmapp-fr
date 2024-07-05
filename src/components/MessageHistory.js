@@ -8,7 +8,7 @@ const MessageHistory = ({ msg }) => {
 
 
         <div className="message-history font-bold text-gray-600 mt-4">
-            <div className={`flex items-start space-x-4 ${row.sender.toLowerCase() === "client" ? 'flex-row' : 'flex-row-reverse'}`}>
+            <div className={`flex items-start space-x-4 ${(ind % 2 === 0) ? 'flex-row-reverse' : ''}`}>
                 <div className="flex flex-col">
                     <div className="sender text-sm font-medium text-gray-700 p-1">{row.sender}</div>
                     <div className="date text-xs text-gray-500 p-1">{row.msgAt && new Date(row.msgAt).toLocaleString()}</div>

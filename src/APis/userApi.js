@@ -52,16 +52,21 @@ export const fetchUser = () => {
         }
     })
 }
-export const userLogout = async () => {
-    try {
-        await axios.delete(logoutUrl, {
-            headers: {
-                Authorization: sessionStorage.getItem("accessJWT"),
-            },
-        });
-    } catch (error) {
-        console.log(error);
-    }
+export const userLogout = () => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const result = await axios.delete(logoutUrl, {
+                headers: {
+                    Authorization: sessionStorage.getItem("accessJWT"),
+                },
+            });
+            resolve(result)
+        } catch (error) {
+            reject(error)
+            console.log(error);
+        }
+    })
+
 };
 export const fetchNewAccessJWT = () => {
     return new Promise(async (resolve, reject) => {
