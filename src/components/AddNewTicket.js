@@ -65,6 +65,7 @@ const AddNewTicket = () => {
             navigate('/dashboard')
         }, 2000);
     };
+    if (isLoading) return <Spinner />;
     return (
         <div>
             <form className='max-w-md mx-auto bg-white p-8 rounded shadow-lg mt-3' autoComplete='off' onSubmit={handleOnSubmit}>
@@ -123,6 +124,7 @@ const AddNewTicket = () => {
             </form>
 
         </div>
+
     )
 }
 

@@ -21,7 +21,7 @@ const newTicketSlice = createSlice({
             state.error = payload;
         },
         restSuccessMSg: (state) => {
-            state.isLoading = true;
+            state.isLoading = false;
             state.successMsg = "";
         },
     },

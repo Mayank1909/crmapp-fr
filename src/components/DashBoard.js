@@ -17,10 +17,12 @@ const DashBoard = () => {
                 dispatch(fetchAllTickets())
             }, 3000);
         }
-    }, [tickets, dispatch]);
+    }, []);
     const pendingTickets = tickets.filter((row) => row.status !== "Closed");
     const totlatTickets = tickets.length;
+    if (isLoading) return <Spinner />
     return (
+
         <div className='mb-2'>
             <BreadCrump page={"DashBoard"} />
             {
@@ -45,6 +47,8 @@ const DashBoard = () => {
             {isLoading ? (<Spinner />) : <TicketTable tickets={tickets} />}
 
         </div >
+
+
     )
 }
 

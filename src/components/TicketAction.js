@@ -24,7 +24,7 @@ export const fetchAllTickets = () => async (dispatch) => {
     try {
         const result = await getAllTickets();
         console.log(result);
-        result.data.result.length &&
+        result.data.result.length >= 0 &&
             dispatch(fetchTicketSuccess(result.data.result));
     } catch (error) {
         dispatch(fetchTicketFail(error.message));

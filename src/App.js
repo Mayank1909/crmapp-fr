@@ -9,6 +9,8 @@ import Home from './pages/Home';
 import Ticket from './pages/Ticket';
 import Error from './components/Error';
 import PrivateRoute from './Routes/PrivateRoute';
+import Register from './pages/Register';
+
 
 
 export const appRouter = createBrowserRouter([
@@ -48,6 +50,12 @@ export const appRouter = createBrowserRouter([
         element: (<PrivateRoute>
           <Ticket />
         </PrivateRoute>)
+      },
+      {
+        path: "/registration",
+        element: (
+          <Register />
+        )
       },
     ]
   }

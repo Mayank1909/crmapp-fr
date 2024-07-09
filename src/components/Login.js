@@ -13,8 +13,8 @@ import Alert from './Alert.js';
 
 
 const Login = ({ frmSwitcher }) => {
-    const [email, setEmail] = useState("mayandsdsk@e.com");
-    const [password, setPassword] = useState("password");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const { isLoading, isAuth, error } = useSelector(state => state.login);
     const dispatch = useDispatch();
@@ -75,7 +75,7 @@ const Login = ({ frmSwitcher }) => {
 
 
             <form className='max-w-md mx-auto bg-white p-8 rounded shadow-lg' autoComplete='off' onSubmit={handleOnSubmit}>
-                {error !== "" && <Alert variant="error" message={error} />}
+                {(error !== "") && <Alert variant="error" message={error} />}
                 <h1 className='text-2xl font-bold  text-center'>Login:</h1>
                 <div className="mb-4">
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email address</label>
