@@ -1,10 +1,27 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
+import { sendPasswordResetOtp } from './Resetpass.Action';
 
 
-const ResetPassword = ({ handleOnChange, email, handleOnSubmit, frmSwitcher, handleOnResetSubmit }) => {
+const ResetPassword = () => {
 
+    const dispatch = useDispatch();
 
+    const [email, setEmail] = useState("");
+
+    const { isLoading, status, message } = useSelector((state) => state.resetpassword);
+
+    const handleOnResetSubmit = e => {
+        e.preventDefault();
+
+        dispatch(sendPasswordResetOtp(email));
+    };
+
+    const handleOnChange = e => {
+        const { value } = e.target;
+        setEmail(value);
+    };
 
     return (
         <div className=''>
@@ -30,10 +47,11 @@ const ResetPassword = ({ handleOnChange, email, handleOnSubmit, frmSwitcher, han
                     className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
 
                 >
-                    Submit
+                    <Link to="/">Submit</Link>
+
                 </button>
 
-                <Link to="/"><h1 className='font-bold text text-blue-300 p-2' onClick={() => frmSwitcher('login')}>Login Now</h1></Link>
+                <Link to="/"><h1 className='font-bold text text-blue-300 p-2'>Login Now</h1></Link>
 
             </form>
 

@@ -112,8 +112,11 @@ const Login = ({ frmSwitcher }) => {
                 {isLoading ? (
                     <Spinner />
                 ) :
+                    <div>
 
-                    <Link to='/'><h1 className='font-bold text text-blue-300 p-2' onClick={() => frmSwitcher('reset')}>forget password ?</h1></Link>
+                        <Link to='/'><h1 className='font-bold text text-blue-300 p-2' onClick={() => frmSwitcher('reset')}>forget password ?</h1></Link>
+                        <Link to='/registration'><h1 className='font-bold text text-blue-300 p-2' onClick={() => frmSwitcher('reset')}>Register yourself</h1></Link>
+                    </div>
                 }
 
             </form>
